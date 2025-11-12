@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import TeamCard from './TeamCard';
-import { TeamData } from '../eventServices';
+import { LineUpData, TeamData } from '../eventServices';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import TableStandings from './TableStandings';
 import MatchesInfo from './MatchesInfo';
@@ -10,10 +10,12 @@ import RulesInfo from './RulesInfo';
 
 type Props = {
   teamsData: TeamData[];
+  lineupData: LineUpData[];
 };
 
 const TabsInfo = ({
-  teamsData
+  teamsData,
+  lineupData
 }: Props) => {
 
   const [activeItem, setActiveItem] = useState("rules");
@@ -72,7 +74,7 @@ const TabsInfo = ({
       </TabsContent>
       <TabsContent value="confirmed-pairs">
         <div className='mt-5'>
-          <ConfirmedPairsInfo />
+          <ConfirmedPairsInfo teamsLineupData={lineupData} />
         </div>
       </TabsContent>
       <TabsContent value="matches">

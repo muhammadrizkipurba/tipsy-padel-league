@@ -6,8 +6,12 @@ import { getAllTeamsLineupData, LineUpData } from '../eventServices';
 import { IoCalendarOutline } from 'react-icons/io5';
 import { LuMapPinned } from 'react-icons/lu';
 
-const ConfirmedPairsInfo = () => {
-  const [lineupData, setLineupData] = useState<LineUpData[]>([]);
+const ConfirmedPairsInfo = ({
+  teamsLineupData
+}: {
+  teamsLineupData: LineUpData[]
+}) => {
+  const [lineupData, setLineupData] = useState<LineUpData[]>(teamsLineupData);
   const [isLoading, setIsLoading] = useState(false);
   const [activeRound, setActiveItem] = useState("1");
 

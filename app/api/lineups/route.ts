@@ -5,14 +5,8 @@ import { CreateTeamLineupBody } from "@/types/api";
 import { NextRequest, NextResponse } from "next/server";
 
 // GET TEAMS LINEUP
-export async function GET(req: NextRequest, response: NextResponse) {
+export async function GET(req: NextRequest) {
   await connectDB();
-
-  // Set CORS headers for preflight requests
-  response.headers.set('Access-Control-Allow-Origin', '*');
-  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  response.headers.set('Access-Control-Allow-Credentials', 'true');
 
   try {
     const { searchParams } = new URL(req.url);
@@ -43,14 +37,8 @@ export async function GET(req: NextRequest, response: NextResponse) {
   }
 }
 
-export async function POST(req: NextRequest, response: NextResponse) {
+export async function POST(req: NextRequest) {
   await connectDB();
-  
-  // Set CORS headers for preflight requests
-  response.headers.set('Access-Control-Allow-Origin', '*');
-  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  response.headers.set('Access-Control-Allow-Credentials', 'true');
 
   try {
     const requestBody = await req.json();
