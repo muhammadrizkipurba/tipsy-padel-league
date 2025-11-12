@@ -5,8 +5,15 @@ import { CreateTeamLineupBody } from "@/types/api";
 import { NextRequest, NextResponse } from "next/server";
 
 // GET TEAMS LINEUP
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest, response: NextResponse) {
   await connectDB();
+
+  // Set CORS headers for preflight requests
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  response.headers.set('Access-Control-Allow-Credentials', 'true');
+
   try {
     const { searchParams } = new URL(req.url);
     const team_id = searchParams.get("team_id");
@@ -36,8 +43,15 @@ export async function GET(req: NextRequest) {
   }
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest, response: NextResponse) {
   await connectDB();
+  
+  // Set CORS headers for preflight requests
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  response.headers.set('Access-Control-Allow-Credentials', 'true');
+
   try {
     const requestBody = await req.json();
     const { team_id, season, round, round_match_date, line_ups }: CreateTeamLineupBody = requestBody;
