@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
     console.log(error);
     return NextResponse.json({
       status: 500,
-      message: "Error fetching todos",
+      message: "Internal server error.",
     });
   }
 }

@@ -35,13 +35,13 @@ const TabsInfo = ({
           value="team-info"
           className={`${activeItem === "team-info" ? "bg-primary-pink! font-bold" : "bg-neutral-700 hover:bg-primary-pink/30"} transition-all ease-in-out duration-300 px-4 uppercase text-white cursor-pointer pb-1`}
         >
-          Team Info
+          Teams Info
         </TabsTrigger>
         <TabsTrigger
           value="confirmed-pairs" 
           className={`${activeItem === "confirmed-pairs" ? "bg-primary-pink! font-bold" : "bg-neutral-700 hover:bg-primary-pink/30"} transition-all ease-in-out duration-300 px-4 uppercase text-white cursor-pointer pb-1`}
         >
-          Confirmed Pairs
+          Teams Line Up
         </TabsTrigger>
         <TabsTrigger
           value="matches" 

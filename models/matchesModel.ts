@@ -36,4 +36,4 @@ const LineUpSchema = new Schema<ILineups>(
   { timestamps: true }
 );
 // Prevent model recompilation in development
-export default mongoose.models.LineUps || mongoose.model<ILineups>("LineUps", LineUpSchema);
+export default mongoose.models.Matches || mongoose.model<ILineups>("Matches", LineUpSchema);

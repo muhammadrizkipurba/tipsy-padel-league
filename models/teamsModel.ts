@@ -28,5 +28,6 @@ const TeamSchema = new Schema<ITeam>(
   },
   { timestamps: true }
 );
-// Prevent model recompilation in development
-export default mongoose.models.Teams || mongoose.model<ITeam>("Teams", TeamSchema);
+
+const teams = mongoose.models.teams || mongoose.model<ITeam>("teams", TeamSchema);
+export default teams;
